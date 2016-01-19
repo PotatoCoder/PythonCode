@@ -1,1 +1,30 @@
+Opening Excel Documents
+    wb = openpyxl.load_workbook("fileName")
 
+Getting Sheets from the Workbook
+    wb.get_sheet_names()
+    sheet = wb.get_sheet_by_name("sheet name")
+    anotherSheet = wb.get_active_sheet()
+
+Getting Cells from the Sheets
+    sheet['A1']
+    sheet['A1'].value // gives value inside of cell
+    .row : gives you row cell is inside
+    .column :gives you column its inside
+    .coordinate : gives you Row:Column like A1
+    .cell(row = #,column = #) : gives you cell at location specfied 
+    loop example:
+        for i in range(1, 8, 2):
+            print(i, sheet.cell(row = i, column = 2).value)
+    .get_highest_row() : gets highest row
+    .get_highest_column() : gets highest column
+    
+Converting Between Column Letters and Numbers
+    get_column_letter(number) : numbers to letters
+    column_index_from_string('A') : gives you number
+    
+Getting Rows and Columns from the Sheets
+    tuple(sheet['A1':'C3']) : slice worksheet into cells you want
+    .columns[1] : gives you all cells in the column this Ex: would be all the B`s
+    .rows[1] : gives you all cells in row
+    
